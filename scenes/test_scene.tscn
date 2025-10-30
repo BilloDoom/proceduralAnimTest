@@ -1,0 +1,130 @@
+[gd_scene load_steps=8 format=3 uid="uid://2i7imvprbpwm"]
+
+[ext_resource type="Texture2D" uid="uid://b0xffshahhsk5" path="res://assets/textures/overcast_soil_puresky_4k.hdr" id="1_7ddre"]
+[ext_resource type="Material" uid="uid://bd0hn45a71sqg" path="res://materials/proto.material" id="2_j8ivh"]
+[ext_resource type="PackedScene" uid="uid://cngfvsa3yy4k4" path="res://prefabs/free_cam.tscn" id="3_nd71p"]
+[ext_resource type="PackedScene" uid="uid://bsgq6ojx7mgkv" path="res://prefabs/prod_bot_test.tscn" id="4_7ddre"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qjeyg"]
+panorama = ExtResource("1_7ddre")
+
+[sub_resource type="Sky" id="Sky_3qnke"]
+sky_material = SubResource("PanoramaSkyMaterial_qjeyg")
+
+[sub_resource type="Environment" id="Environment_wtsjf"]
+background_mode = 2
+sky = SubResource("Sky_3qnke")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="TestScene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wtsjf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("2_j8ivh")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(48, 1, 48)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 3, 8)
+size = Vector3(8, 8, 16)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 3, 13)
+size = Vector3(5, 8, 6)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.5, 13)
+size = Vector3(16, 1, 6)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8, 0, 0)
+polygon = PackedVector2Array(0, 0, 0, 7, 8, 0)
+depth = 8.0
+smooth_faces = true
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8, 0, -16)
+polygon = PackedVector2Array(0, 0, 0, 1, 3, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 4
+smooth_faces = true
+
+[node name="CSGPolygon3D3" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10, 0, -15)
+polygon = PackedVector2Array(0, 0, 0, 1, 3, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 4
+smooth_faces = true
+
+[node name="CSGPolygon3D4" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10, 0, -19)
+polygon = PackedVector2Array(0, 0, 0, 1, 3, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 4
+smooth_faces = true
+
+[node name="CSGPolygon3D5" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13, 0, -16)
+polygon = PackedVector2Array(0, 0, 0, 1, 3, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 4
+smooth_faces = true
+
+[node name="CSGPolygon3D6" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13, 0, -20)
+polygon = PackedVector2Array(0, 0, 0, 1, 3, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 4
+smooth_faces = true
+
+[node name="CSGPolygon3D7" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12, 0, -10)
+polygon = PackedVector2Array(0, 0, 0, 1, 3, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 4
+smooth_faces = true
+
+[node name="CSGPolygon3D8" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8, 0, -13)
+polygon = PackedVector2Array(0, 0, 0, 1, 3, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 4
+smooth_faces = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 3.5, 6.5)
+height = 7.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 3.5, 7.5)
+height = 7.0
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 3.5, 4.5)
+height = 7.0
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 3.5, 0.5)
+height = 7.0
+
+[node name="FreeCam" parent="." instance=ExtResource("3_nd71p")]
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, 3.009423, 3, 3)
+
+[node name="prod_bot_test" parent="." instance=ExtResource("4_7ddre")]

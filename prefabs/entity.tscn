@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqon8mtsqqhwl"]
+
+[ext_resource type="Script" uid="uid://bk0qotvr78i2n" path="res://scripts/entity.gd" id="1_6e8rh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_uqc13"]
+
+[node name="Entity" type="CharacterBody3D"]
+script = ExtResource("1_6e8rh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_uqc13")

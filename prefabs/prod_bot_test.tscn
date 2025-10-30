@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsgq6ojx7mgkv"]
+
+[ext_resource type="PackedScene" uid="uid://8tpq1e5q051f" path="res://assets/models/prod_bot_test.fbx" id="1_kqasp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tg8eu"]
+albedo_color = Color(1, 0.14945036, 0.37370953, 1)
+
+[node name="prod_bot_test" instance=ExtResource("1_kqasp")]
+
+[node name="Cylinder" parent="Armature/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_tg8eu")

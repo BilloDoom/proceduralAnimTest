@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cngfvsa3yy4k4"]
+
+[ext_resource type="Script" uid="uid://yymgwvrspma1" path="res://scripts/free_cam.gd" id="1_unuc6"]
+[ext_resource type="Script" uid="uid://cfdrrrc5nj4eu" path="res://scripts/world_space_caster.gd" id="2_byfbd"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_byfbd"]
+
+[node name="FreeCam" type="CharacterBody3D"]
+motion_mode = 1
+script = ExtResource("1_unuc6")
+
+[node name="WorldSpaceCaster" type="Node3D" parent="."]
+script = ExtResource("2_byfbd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_byfbd")
+
+[node name="Camera3D" type="Camera3D" parent="."]
