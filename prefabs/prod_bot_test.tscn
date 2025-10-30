@@ -1,11 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsgq6ojx7mgkv"]
+[gd_scene load_steps=3 format=3 uid="uid://ckmvkpkqbgirq"]
 
-[ext_resource type="PackedScene" uid="uid://8tpq1e5q051f" path="res://assets/models/prod_bot_test.fbx" id="1_kqasp"]
+[ext_resource type="PackedScene" uid="uid://4n6pscfhgprp" path="res://assets/models/prod_bot_test.glb" id="1_bce8n"]
+[ext_resource type="Material" uid="uid://cltk2ju0nmgyh" path="res://materials/default.material" id="2_u7j3l"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tg8eu"]
-albedo_color = Color(1, 0.14945036, 0.37370953, 1)
-
-[node name="prod_bot_test" instance=ExtResource("1_kqasp")]
+[node name="prod_bot_test" instance=ExtResource("1_bce8n")]
 
 [node name="Cylinder" parent="Armature/Skeleton3D" index="0"]
-material_override = SubResource("StandardMaterial3D_tg8eu")
+material_override = ExtResource("2_u7j3l")
+
+[node name="RightFront" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="1"]
+root_bone = &"thigh.f.r"
+tip_bone = &"foot.f.r"
+target_node = NodePath("Marker3D")
+
+[node name="Marker3D" type="Marker3D" parent="Armature/Skeleton3D/RightFront" index="0"]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 1, 0, -1)
+top_level = true
+
+[node name="RightBack" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="2"]
+root_bone = &"thigh.b.r"
+tip_bone = &"foot.b.r"
+target_node = NodePath("Marker3D")
+
+[node name="Marker3D" type="Marker3D" parent="Armature/Skeleton3D/RightBack" index="0"]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 1, 0, 1)
+top_level = true
+
+[node name="LeftFront" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="3"]
+root_bone = &"thigh.f.l"
+tip_bone = &"foot.f.l"
+target_node = NodePath("Marker3D")
+
+[node name="Marker3D" type="Marker3D" parent="Armature/Skeleton3D/LeftFront" index="0"]
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, -1, 0, -1)
+top_level = true
+
+[node name="LeftBack" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="4"]
+root_bone = &"thigh.b.l"
+tip_bone = &"foot.b.l"
+target_node = NodePath("Marker3D")
+
+[node name="Marker3D" type="Marker3D" parent="Armature/Skeleton3D/LeftBack" index="0"]
+transform = Transform3D(-1, -8.940697e-08, 0, 8.940697e-08, -1, 0, 0, 0, 1, -1, 0, 1)
+top_level = true

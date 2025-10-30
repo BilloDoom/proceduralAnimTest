@@ -1,11 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqon8mtsqqhwl"]
+[gd_scene load_steps=7 format=3 uid="uid://bqon8mtsqqhwl"]
 
 [ext_resource type="Script" uid="uid://bk0qotvr78i2n" path="res://scripts/entity.gd" id="1_6e8rh"]
+[ext_resource type="Material" uid="uid://cltk2ju0nmgyh" path="res://materials/default.material" id="2_c75g6"]
+[ext_resource type="Script" uid="uid://wtvuh8vyf4xa" path="res://scripts/movement_queue.gd" id="3_1htfp"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_uqc13"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_c75g6"]
+radius = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_c75g6"]
 
 [node name="Entity" type="CharacterBody3D"]
 script = ExtResource("1_6e8rh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_uqc13")
+
+[node name="InteractionArea" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="InteractionShape" type="CollisionShape3D" parent="InteractionArea"]
+shape = SubResource("SphereShape3D_c75g6")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+debug_enabled = true
+debug_path_custom_color = Color(18.892157, 0, 0, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_c75g6")
+mesh = SubResource("BoxMesh_c75g6")
+
+[node name="MovementQueue" type="Node" parent="."]
+script = ExtResource("3_1htfp")

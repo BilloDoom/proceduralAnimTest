@@ -17,7 +17,8 @@ func _input(event: InputEvent) -> void:
 		return
 
 	if event is InputEventMouseButton:
-		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		# Right click for setting destinations
+		if event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
 			_perform_raycast(event.position)
 
 

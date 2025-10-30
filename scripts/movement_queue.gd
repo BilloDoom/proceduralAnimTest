@@ -8,6 +8,9 @@ var position_queue: Array[Vector3] = []
 
 
 func _ready() -> void:
+	# Add to group so entities can find this queue
+	add_to_group("movement_queue")
+
 	# Connect to the world_space_caster if it exists
 	var caster = get_tree().get_first_node_in_group("world_caster")
 	if caster and caster.has_signal("world_position_clicked"):
@@ -15,8 +18,8 @@ func _ready() -> void:
 
 
 func _on_world_position_clicked(position: Vector3, normal: Vector3, collider: Object) -> void:
-	# Check if shift is held (queue mode)
-	if Input.is_action_pressed("click_shift"):
+	# Check if shift + right click is held (queue mode)
+	if Input.is_action_pressed("right_click_shift"):
 		# Add to queue
 		position_queue.append(position)
 		print("Queued position: ", position, " | Total in queue: ", position_queue.size())

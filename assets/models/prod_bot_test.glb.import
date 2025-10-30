@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://8tpq1e5q051f"
-path="res://.godot/imported/prod_bot_test.fbx-d463f172a3ff294bce7c5191c93bdee1.scn"
+uid="uid://4n6pscfhgprp"
+path="res://.godot/imported/prod_bot_test.glb-84af34192702d6bdaa87dad9d73fd6fb.scn"
 
 [deps]
 
-source_file="res://assets/models/prod_bot_test.fbx"
-dest_files=["res://.godot/imported/prod_bot_test.fbx-d463f172a3ff294bce7c5191c93bdee1.scn"]
+source_file="res://assets/models/prod_bot_test.glb"
+dest_files=["res://.godot/imported/prod_bot_test.glb-84af34192702d6bdaa87dad9d73fd6fb.scn"]
 
 [params]
 
@@ -30,7 +30,7 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
@@ -38,7 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
-fbx/naming_version=2
+gltf/naming_version=2
+gltf/embedded_image_handling=1
